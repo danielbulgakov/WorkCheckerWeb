@@ -28,11 +28,7 @@ function ConvertToPDF( usr, work, res) {
     }
 
     if (work.endsWith('.pdf')) {
-        fs.copyFile(FilePath, outputPath, (err) => {
-            if (err) throw err;
-            console.log('File was copied to destination');
-        });
-        res.sendFile(outputPath);
+        res.sendFile(FilePath);
         return;
     }
 
