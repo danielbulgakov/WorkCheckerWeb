@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Загрузить файл.</title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+</head>
+<body>
+<div >
+    <h2 >Выберите работу на оценку.</h2>
+    <form method="post">
+
+
+            <% for(let i=0; i<arrayf.length;i++) {
+                var text = 'Автор : ' + arrayf[i][0];
+                var text2 = 'Название : ' + arrayf[i][1];
+            %>
+                <div>
+                    <button class="btn" name="button" value="<%=JSON.stringify({ login: arrayf[i][0], work: arrayf[i][1] })%>">
+                        <%=text2 %><br /><span>(<%=text %>)</span>
+                    </button>
+                </div>
+
+
+
+            <%} %>
+
+    </form>
+    <form>
+        <hr>
+        <button class="btn" formmethod="get" formaction="/profile" >Назад</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Вход</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+</head>
+<body>
+<div class="container">
+    <form method="post">
+        <h2 >Выполните вход.</h2>
+        <p>
+            <input name="login" type="text" id="username" placeholder="Логин" required="" autofocus="">
+        </p>
+        <p>
+            <input name="password" type="password" id="password" placeholder="Пароль" required="">
+        </p>
+        <p>
+            <label class="label-error" <%= label_mode %>><%= mes %></label>
+        </p>
+        <button class="btn" type="submit">Войти</button>
+    </form>
+</div>
+</body>
+</html>

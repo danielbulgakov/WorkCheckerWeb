@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Вход</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+    <script type="text/javascript" src="javascript/signup.js"></script>
+</head>
+<body>
+<div class="container">
+    <form id="form-post" method="post" >
+        <h2 >Выполните регистрацию.</h2>
+        <p>
+            <input name="login" type="text" id="username" placeholder="Логин" onblur="checkLogin()" required="" autofocus="">
+        </p>
+        <p>
+            <input name="password" type="password" id="password" placeholder="Пароль" required="">
+        </p>
+        <p>
+            <input type="password" id="password-repeat" onblur="checkRepeatedPassword()"  placeholder="Повторите пароль" required="">
+        </p>
+        <p>
+            <label class="label-error" id="label-error" <%= label_mode %>><%= mes %></label>
+        </p>
+        <button class="btn" type="submit">Зарегистрироваться</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Загрузить файл.</title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+    <link rel='stylesheet' href='../stylesheets/table.css' />
+</head>
+<body>
+<div >
+    <form  method="post">
+        <table class="datatable">
+        <thead>  <th>Название работы</th> <th>Средняя оценка</th> <th>Посмотреть работу</th> </thead>
+        <tbody>
+        <% for(let i=0; i<arrayf.length;i++) {%>
+        <tr>
+            <td><%=arrayf[i][0] %></td>
+            <td><%=arrayf[i][1] %></td>
+            <td><button class="btn" name="button" formaction="/profile/mygrades/view"
+                        value="<%=JSON.stringify({ login: arrayf[i][0], work: arrayf[i][1] })%>" > > </button></td>
+        </tr>
+        <%} %>
+        </tbody>
+        </table>
+    </form>
+    <form>
+        <hr>
+        <button class="btn" formmethod="get" formaction="/profile" >Назад</button>
+    </form>
+</div>
+</body>
+</html>

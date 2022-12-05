@@ -1,0 +1,60 @@
+.div-row {
+    text-align: center;
+    display: flex;
+}
+
+.div-column {
+    text-align: center;
+    flex: 80%;
+}
+
+
+fieldset
+{
+    margin: auto auto 10px;
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    background-color:white;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 13px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    max-width:500px;
+    padding:15px;
+
+}
+
+iframe
+{
+    margin-right: 20px;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 13px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    min-height: 100%;
+}
+
+label, input{
+    display:inline-block;
+    box-sizing: border-box;
+
+}
+textarea{
+      display:inline-block;
+      box-sizing: border-box;
+      min-width: 100%;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}

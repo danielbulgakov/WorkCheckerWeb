@@ -1,0 +1,41 @@
+
+.datatable{
+    margin:auto;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 18px;
+    font-family: sans-serif;
+    min-width: 400px;
+    width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.datatable thead tr {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+}
+
+.datatable th,
+.datatable td {
+    padding: 12px 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.datatable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.datatable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.datatable tbody tr:last-of-type {
+    border-bottom: 2px solid #000000;
+}
+
+.datatable tbody tr.active-row {
+    font-weight: bold;
+    color: #000000;
+}

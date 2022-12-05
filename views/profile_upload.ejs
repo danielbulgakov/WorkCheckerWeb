@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Загрузить файл.</title>
+    <link rel='stylesheet' href='../stylesheets/style.css' />
+</head>
+<body>
+<div >
+    <form enctype="multipart/form-data" method="post">
+        <h2 >Выберите файл</h2>
+        <p>
+            <input id='files' name="files" type="file" required>
+        </p>
+        <p>
+            <label class="label-error" <%= label_err_mode %>><%= mes_err %></label>
+            <label class="label-info" <%= label_info_mode %>><%= mes_info %></label>
+        </p>
+
+        <button class="btn" type="submit">Отправить</button>
+    </form>
+    <form>
+        <hr>
+        <button class="btn" formmethod="get" formaction="/profile" >Назад</button>
+    </form>
+</div>
+</body>
+</html>

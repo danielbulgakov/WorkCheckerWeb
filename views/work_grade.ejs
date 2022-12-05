@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Загрузить файл.</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/side_side_layout.css'/>
+</head>
+<body>
+<form method="post">
+<div class="div-row">
+    <div class="div-column">
+        <iframe src="<%= href %>" width="50%" height="50%">
+        </iframe>
+    </div>
+    <div class="div-column">
+
+        <fieldset>
+            <fieldset>
+            <label>Оценка работы.</label>
+            </fieldset>
+
+            <fieldset id="field-mark">
+
+                <label for="field-mark" name="work-name" >Поставьте оценку.</label>
+                <hr>
+                <% for(let i=1; i<=5; i++) {%>
+                <label><%=i%>
+                <input type="radio" id="<%=i%>" name="radio_list" value="<%=i%>"
+                       <%if(i==1) {%>checked <% } %>>
+                </label>
+                <% } %>
+            </fieldset>
+            <fieldset>
+            <label for="field-text">Оставьте комментарий.</label>
+            <textarea name="comment" cols="40" rows="5"></textarea>
+            </fieldset>
+
+        </fieldset>
+        <button class="btn" type="submit">Отправить</button>
+    </div>
+</div>
+</form>
+</body>
+</html>
