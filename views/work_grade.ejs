@@ -6,11 +6,11 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/side_side_layout.css'/>
 </head>
-<body>
+<body onload="framedefault">
 <form method="post">
 <div class="div-row">
-    <div class="div-column">
-        <iframe src="<%= href %>" width="50%" height="50%">
+    <div class="div-column frame-holder">
+        <iframe id="doc-frame" src="<%= href %>" width="50%" height="50%" onstar>
         </iframe>
     </div>
     <div class="div-column">

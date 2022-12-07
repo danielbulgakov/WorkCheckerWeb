@@ -1,6 +1,6 @@
-var connection = require("./db");
-var fs = require('fs')
-var path = require('path');
+const connection = require("./db");
+const fs = require('fs')
+const path = require('path');
 
 
 function sendListOfGrades (req, res) {
@@ -11,18 +11,18 @@ function sendListOfGrades (req, res) {
 
         }
         else {
-            var array = [];
-            for(var i = 0; i < output.rows.length; i++) {
+            let array = [];
+            for(let i = 0; i < output.rows.length; i++) {
                 array.push([output.rows[i].work_id, output.rows[i].avg]);
             }
-            var spath = path.join(__dirname , "../../docs" , req.session.user_id);
+            let spath = path.join(__dirname , "../../docs" , req.session.user_id);
             if (!fs.existsSync(spath)){ res.render(
                 'profile_grades', { arrayf : array});
                 return;
-            };
-            var files = fs.readdirSync(spath, function (err, files) {
+            }
+            let files = fs.readdirSync(spath, function (err, files) {
                 if (err) {
-                    return console.log('Unable to scan directory: ' + err);
+                    return  console.log('Unable to scan directory: ' + err);
                 }
                 return files;
 
@@ -49,12 +49,12 @@ function sendGradePool(req, res) {
             res.send('Ошибка получения данных');
         }
         else {
-            var arrayMarked = [], arrayNotMarked = [], arrayUsers = [], pool = [];
-            for(var i = 0; i < output.rows.length; i++) {
+            let arrayMarked = [], arrayNotMarked = [], arrayUsers = [], pool = [];
+            for(let i = 0; i < output.rows.length; i++) {
                 arrayMarked.push([output.rows[i].user_id, output.rows[i].work_id, output.rows[i].cnt]);
             }
-            var spath = path.join(__dirname , "../../docs" );
-            var files = fs.readdirSync(spath, function (err, files) {
+            let spath = path.join(__dirname , "../../docs" );
+            let files = fs.readdirSync(spath, function (err, files) {
                 if (err) {
                     return console.log('Unable to scan directory: ' + err);
                 }
@@ -63,19 +63,19 @@ function sendGradePool(req, res) {
             });
             files.forEach(function (usr) {
                 if (usr === req.session.user_id) return;
-                var docs = fs.readdirSync(path.join(spath, usr), function (err, files) {
+                let docs = fs.readdirSync(path.join(spath, usr), function (err, files) {
                     if (err) {
                         return console.log('Unable to scan directory: ' + err);
                     }
                     return files;
                 });
                 docs.forEach(function (doc) {
-                    if (arrayMarked.findIndex(([first, second, third]) => (second === doc )) == -1){
+                    if (arrayMarked.findIndex(([, second, ]) => (second === doc )) == -1){
                         arrayNotMarked.push([usr, doc]);
                     }
                 })
             })
-            var mar, nmar;
+            let mar, nmar;
             nmar = arrayNotMarked.length > 3 ? 3 : arrayNotMarked.length;
             mar = arrayMarked.length > 3 - nmar ? 3 - nmar : arrayMarked.length;
             for(let i=0; i<nmar ;i++) {pool.push([arrayNotMarked[i][0], arrayNotMarked[i][1]])}
@@ -105,9 +105,9 @@ function sendMarks(work_id, usr_id, req,  res) {
             res.send("Ошибка с БД : " + err);
         }
         else {
-            var array = [];
+            let array = [];
             console.log(output.rows);
-            for(var i = 0; i < output.rows.length; i++) {
+            for(let i = 0; i < output.rows.length; i++) {
                 array.push([output.rows[i].mark, output.rows[i].comment]);
             }
             res.render('my_work_grade', { arrayf : array});

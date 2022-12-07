@@ -1,15 +1,15 @@
-var multer = require('multer')
-var path = require("path");
-var fs = require("fs")
+const multer = require('multer')
+const path = require("path");
+const fs = require("fs")
 
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        var upath = path.join(__dirname, "../../docs", req.session.user_id);
+        let upath = path.join(__dirname, "../../docs", req.session.user_id);
         if (!fs.existsSync(upath)){
             fs.mkdir(upath, function(err) {
                 if(err) {
-                    console.log('Error in folder creation');
+                    console.log('[MULTER]', 'Error in folder creation');
                 }
                 cb(null, upath);
             })
@@ -29,7 +29,7 @@ var storage = multer.diskStorage({
 })
 
 
-var upload = multer({
+const upload = multer({
     storage: storage,
     limits: { fileSize: 10 * 1024 * 1024 }
 }).single("files");

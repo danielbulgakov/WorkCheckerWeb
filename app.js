@@ -1,12 +1,12 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 
-var db_sess = require('./private/controllers/db_session.js')
+const db_sess = require('./private/controllers/db_session.js');
 
 
-var app = express();
+const app = express();
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 
 // view engine
 app.set('views', path.join(__dirname, 'views'));

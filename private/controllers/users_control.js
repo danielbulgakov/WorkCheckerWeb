@@ -1,4 +1,4 @@
-var connection = require("./db");
+const connection = require("./db");
 
 function addUser (login, password, res) {
     connection.query("INSERT INTO users (login, password) VALUES( $1 , $2 );", [login, password], function(err){
@@ -6,11 +6,10 @@ function addUser (login, password, res) {
             res.render('signup', { label_mode: '' , mes: 'Произошла ошибка, повторите позже.' });
         }
         else res.redirect('/')
-        return;
     });
 }
 
-function findAndAddUser (req, res, next) {
+function findAndAddUser (req, res) {
     connection.query("SELECT count(login) cnt FROM users WHERE login=$1;", [req.body.login] , function(err, output){
 
         if (err){
@@ -27,7 +26,7 @@ function findAndAddUser (req, res, next) {
     });
 }
 
-function findUser (req, res, next) {
+function findUser (req, res) {
     connection.query("SELECT count(login) cnt FROM users WHERE login=$1 and password=$2;", [req.body.login, req.body.password] , function(err, output){
 
         if (err){

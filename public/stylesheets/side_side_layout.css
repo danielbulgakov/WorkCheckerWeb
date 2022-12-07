@@ -9,6 +9,12 @@
 }
 
 
+.frame-holder {
+  background:url(../images/load.gif) center center no-repeat;
+  background-size: 30%;
+}
+
+
 fieldset
 {
     margin: auto auto 10px;

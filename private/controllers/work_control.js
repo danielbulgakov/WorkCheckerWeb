@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 
-var work, id;
+let work, id;
 
 function ConvertToPDF( usr, work, res) {
     console.log("work", work);
@@ -33,11 +33,10 @@ function ConvertToPDF( usr, work, res) {
     }
 
     const docxBuf = fs.readFileSync(FilePath);
-    const pdfBuf = libre.convert(docxBuf, extend, undefined,function(err,data) {
+    libre.convert(docxBuf, extend, undefined,function(err,data) {
         if (err) console.log("file error " + err);
         fs.writeFileSync(outputPath, data);
         res.sendFile(outputPath);
-        return;
     });
 
 
@@ -47,7 +46,7 @@ function ConvertToPDF( usr, work, res) {
 }
 
 function FreeCache(){
-    var dir = path.join(__dirname, '../../public/pdf');
+    let dir = path.join(__dirname, '../../public/pdf');
     if (fs.existsSync(dir)){
         fs.rmSync(dir, { recursive: true })
         fs.mkdirSync(dir)
